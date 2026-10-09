@@ -1,6 +1,8 @@
 {
-  "name": "James scg watches",
-  "description": "A curated collection of exceptional timepieces defined by precision, craftsmanship, and timeless design.",
+  "name": "Hhu Allen",
+  "description": "Discover Hhu Allen in Los Angeles, California. A curated collection of exceptional timepieces defined by precision, craftsmanship, and timeless design.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

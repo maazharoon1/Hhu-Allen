@@ -1,3 +1,4 @@
+import brand from '../brand.json';
 import { useEffect, useState } from 'react';
 import { PRODUCTS } from './data/products';
 import type { WatchProduct, CartItem } from './types/watch';
@@ -39,7 +40,7 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleRoute);
   }, []);
   useEffect(() => {
-    document.title = page === 'home' ? 'James scg watches' : `${page === 'about' ? 'Our Story' : 'Checkout'} | James scg watches`;
+    document.title = page === 'home' ? brand.name : `${page === 'about' ? 'Our Story' : 'Checkout'} | ${brand.name}`;
     const section = route.startsWith('/?section=') ? route.split('=')[1] : '';
     if (section) document.getElementById(section)?.scrollIntoView({ behavior: 'instant' });
     else window.scrollTo({ top: 0, behavior: 'instant' });

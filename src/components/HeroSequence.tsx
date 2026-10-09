@@ -1,3 +1,4 @@
+import brand from '../../brand.json';
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { frameEngine, FRAME_COUNT } from '../lib/frameLoader';
 import { ArrowDown } from 'lucide-react';
@@ -177,7 +178,7 @@ export const HeroSequence: React.FC = () => {
         <canvas
           ref={canvasRef}
           role="img"
-          aria-label="James scg watches timepiece, rotating as you scroll"
+          aria-label={`${brand.name} timepiece, rotating as you scroll`}
           className="hero-canvas absolute inset-0 z-10 h-full w-full object-contain pointer-events-none"
         />
 
@@ -192,7 +193,7 @@ export const HeroSequence: React.FC = () => {
         >
           {/* Main Display Heading */}
           <h1 className="hero-heading font-serif text-5xl sm:text-6xl tracking-[0.04em] text-neutral-900 font-normal leading-[1.05]">
-            JAMES SCG WATCHES
+            {brand.name.toUpperCase()}
           </h1>
         </div>
 

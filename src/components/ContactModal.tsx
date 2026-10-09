@@ -1,5 +1,6 @@
+import brand from '../../brand.json';
 import React from 'react';
-import { X, Facebook, ArrowRight } from 'lucide-react';
+import { X, MapPin, Facebook, ArrowRight } from 'lucide-react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -17,13 +18,18 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
         </button>
         <div className="w-8 h-[1.5px] bg-red-700 mb-6" />
         <h2 id="contact-title" className="font-serif text-3xl sm:text-4xl text-neutral-900 font-normal">CONTACT</h2>
-        <p className="mt-2 text-xs tracking-[0.2em] uppercase text-neutral-600 font-medium">James scg watches</p>
+        <p className="mt-2 text-xs tracking-[0.2em] uppercase text-neutral-600 font-medium">{brand.name}</p>
         <p className="mt-6 text-xs text-neutral-600 leading-relaxed font-light">
-          For timepiece inquiries and collection details, get in touch with us on Facebook.
+          Discover our timepiece collection, based in {brand.location}.
         </p>
-        <a href="https://www.facebook.com/profile.php?id=61595089054759" target="_blank" rel="noopener noreferrer" className="mt-8 flex items-center justify-center gap-3 px-5 py-4 bg-neutral-900 hover:bg-red-800 transition-colors text-xs tracking-wider text-white">
+        <a href={brand.locationUrl} target="_blank" rel="noopener noreferrer" className="mt-8 flex items-center justify-center gap-3 px-5 py-4 bg-neutral-900 hover:bg-red-800 transition-colors text-xs tracking-wider text-white">
+          <MapPin className="w-4 h-4" />
+          <span>{brand.location}</span>
+          <ArrowRight className="w-4 h-4" />
+        </a>
+        <a href={brand.facebookUrl} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center justify-center gap-3 px-5 py-4 bg-neutral-900 hover:bg-red-800 transition-colors text-xs tracking-wider text-white">
           <Facebook className="w-4 h-4" />
-          <span>Contact us on Facebook</span>
+          <span>Contact {brand.name} on Facebook</span>
           <ArrowRight className="w-4 h-4" />
         </a>
       </div>

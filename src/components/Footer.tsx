@@ -1,5 +1,6 @@
+import brand from '../../brand.json';
 import React from 'react';
-import { Facebook } from 'lucide-react';
+import { MapPin, Facebook } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (section: 'collection' | 'about' | 'contact' | 'craftsmanship') => void;
@@ -19,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Brand Col */}
           <div className="md:col-span-5 space-y-4">
             <h3 className="font-serif text-xl sm:text-2xl text-neutral-900 tracking-[0.15em] uppercase font-normal">
-              JAMES SCG WATCHES
+              {brand.name.toUpperCase()}
             </h3>
             <p className="text-xs text-neutral-600 max-w-sm font-light leading-relaxed">
               A curated collection of exceptional timepieces defined by precision, craftsmanship, and timeless design.
@@ -70,21 +71,25 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Contact Direct */}
           <div className="md:col-span-4 space-y-3">
             <h4 className="text-[11px] tracking-[0.2em] uppercase font-semibold text-neutral-900">
-              Direct Contact
+              Contact & Location
             </h4>
             <div className="space-y-2 text-xs text-neutral-600">
               <a
-                href="https://www.facebook.com/profile.php?id=61595089054759"
+                href={brand.locationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-red-700 transition-colors"
               >
+                <MapPin className="w-3.5 h-3.5 text-red-700" />
+                <span>{brand.location}</span>
+              </a>
+              <a href={brand.facebookUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-red-700 transition-colors">
                 <Facebook className="w-3.5 h-3.5 text-red-700" />
-                <span>James scg watches on Facebook</span>
+                <span>{brand.name} on Facebook</span>
               </a>
             </div>
             <p className="text-[11px] text-neutral-600 pt-2 font-light">
-              Get in touch on Facebook for timepiece inquiries.
+              {brand.name} · {brand.location}
             </p>
           </div>
 
@@ -93,7 +98,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-600 font-light">
           <div>
-            © {new Date().getFullYear()} James scg watches. All rights reserved.
+            © {new Date().getFullYear()} {brand.name}. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <span>Mechanical Precision</span>

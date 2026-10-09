@@ -1,3 +1,4 @@
+import brand from '../../brand.json';
 import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Menu, X, ArrowRight } from 'lucide-react';
 
@@ -52,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             className="brand-wordmark text-left font-serif text-lg sm:text-xl tracking-[0.2em] uppercase text-neutral-900 hover:text-red-800 transition-colors duration-200 cursor-pointer font-medium"
           >
-            JAMES SCG WATCHES
+            {brand.name.toUpperCase()}
           </button>
 
           {/* Desktop Navigation Links (Zone 2) */}
@@ -174,8 +175,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               <ShoppingBag className="w-4 h-4" />
               <span>Cart ({cartCount})</span>
             </button>
-            <div className="text-[11px] text-neutral-600 text-center tracking-wider">
-              <a href="https://www.facebook.com/profile.php?id=61595089054759" target="_blank" rel="noopener noreferrer" className="hover:text-red-700 transition-colors">James scg watches on Facebook</a>
+            <div className="text-[11px] text-neutral-600 text-center tracking-wider flex flex-col gap-3">
+              <a href={brand.facebookUrl} target="_blank" rel="noopener noreferrer" className="hover:text-red-700 transition-colors">{brand.name} on Facebook</a>
+              <a href={brand.locationUrl} target="_blank" rel="noopener noreferrer" className="hover:text-red-700 transition-colors">{brand.location}</a>
             </div>
           </div>
         </div>

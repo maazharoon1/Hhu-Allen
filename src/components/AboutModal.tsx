@@ -1,3 +1,4 @@
+import brand from '../../brand.json';
 import React from 'react';
 import { X, ArrowRight } from 'lucide-react';
 
@@ -33,7 +34,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
         <div className="w-10 h-[1.5px] bg-red-700 mb-6" />
 
         <h2 className="font-serif text-3xl sm:text-4xl text-neutral-900 font-normal">
-          ABOUT JAMES SCG WATCHES
+          ABOUT {brand.name.toUpperCase()}
         </h2>
 
         <p className="mt-2 text-xs tracking-[0.2em] uppercase text-neutral-600 font-medium">
@@ -42,7 +43,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
 
         <div className="mt-8 space-y-6 text-sm text-neutral-600 font-light leading-relaxed">
           <p>
-            James scg watches is founded on an enduring reverence for fine mechanical watchmaking. We curate exceptional timepieces that embody the height of precision engineering, noble metallurgy, and timeless aesthetic restraint.
+            {brand.name} is founded on an enduring reverence for fine mechanical watchmaking. We curate exceptional timepieces that embody the height of precision engineering, noble metallurgy, and timeless aesthetic restraint.
           </p>
 
           <p>
@@ -55,8 +56,9 @@ export const AboutModal: React.FC<AboutModalProps> = ({
         </div>
 
         <div className="mt-10 pt-8 border-t border-neutral-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="text-xs text-neutral-600">
-            <a href="https://www.facebook.com/profile.php?id=61595089054759" target="_blank" rel="noopener noreferrer" className="hover:text-red-700 transition-colors">Contact James scg watches on Facebook</a>
+          <div className="text-xs text-neutral-600 flex flex-col gap-3">
+            <a href={brand.facebookUrl} target="_blank" rel="noopener noreferrer" className="hover:text-red-700 transition-colors">Contact {brand.name} on Facebook</a>
+            <a href={brand.locationUrl} target="_blank" rel="noopener noreferrer" className="hover:text-red-700 transition-colors">{brand.location}</a>
           </div>
 
           <button
